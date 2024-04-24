@@ -1,0 +1,27 @@
+.cards {
+    /* display: flex; */
+    /* flex-wrap: wrap; */
+    column-gap: 2rem;
+    row-gap: 2rem;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(120px, 200px));
+}
+
+.img-container {
+    background: #FFF;
+    aspect-ratio: 1 / 1;
+    border-radius: 4px;
+    overflow: hidden;
+    cursor: pointer;
+}
+.event-card p {
+    margin: 0;
+    color: #FFF;
+}
+.event-card .name {
+    margin-top: 0.5rem;
+    font-size: 1.1rem;
+}
+.event-card .event {
+    font-size: 0.875rem;
+}

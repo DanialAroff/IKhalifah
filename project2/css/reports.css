@@ -1,0 +1,26 @@
+.report {
+    /* background-color: #242424; */
+    border-radius: 4px;
+    padding: 1.5rem 1rem;
+    /* color: #FFF; */
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    color: #FFF;
+}
+th, td {
+    padding: 0.5rem;
+    text-align: start;
+}
+
+tr:not(:first-child):hover {
+    background-color: #16CEDA;
+}
+
+.col-ticket {
+    display: flex;
+    align-items: center;
+    column-gap: 4px;
+}

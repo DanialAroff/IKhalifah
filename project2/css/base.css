@@ -1,0 +1,67 @@
+* {
+    box-sizing: border-box;
+    font-size: 16px;
+}
+
+html, body {
+    padding: 0;
+    margin: 0;
+    font-family: 'Nunito Sans', 'Arial', sans-serif;
+    /* background: #1F1F1F; */
+    /* background-color: #13142D; */
+    background-color: #111127;
+    /* background-image: url('../assets/img/background1.png'); */
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    height: 100%;
+}
+
+main {
+    padding: 1rem;
+}
+p {
+    margin: 0;
+}
+dialog {
+    border: none;
+    border-radius: 4px;
+    padding: 1rem;
+}
+
+.error-msg {
+    color: #D33434;
+}
+.d-flex {
+    display: flex;
+    align-items: center;
+    column-gap: 10px;
+}
+.p {
+    padding: 1rem;
+}
+.m-b {
+    margin-bottom: 1rem;
+}
+.m-t {
+    margin-top: 1rem;
+}
+.m-r {
+    margin-right: 1rem;
+}
+.m-l {
+    margin-left: 1rem;  
+}
+.main-heading {
+    font-size: 1.5rem;
+    color: #FFF;
+}
+.font-s {
+    font-size: 0.875rem;
+}
+.font-m {
+    font-size: 1.25rem;
+}
+.font-l {
+    font-size: 1.5rem;
+}

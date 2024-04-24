@@ -1,0 +1,103 @@
+main {
+    display: block;
+    width: 100%;
+}
+
+.container {
+    width: 100%;
+    color: #FFF;
+    margin-bottom: 1rem;
+}
+
+.row {
+    display: flex;
+    column-gap: 0.5rem;
+    margin-bottom: 1rem;
+}
+
+.img-container {
+    flex: 1;
+    border-radius: 4px;
+    overflow: hidden;
+    width: 100%;
+    aspect-ratio: 1 / 1;
+}
+.img-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.event-schedule {
+    flex: 2;
+    padding: 0 0.5rem;
+    display: flex;
+    flex-direction: column;
+}
+.event-schedule ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.description {
+    width: 100%;
+    border-radius: 4px;
+}
+
+.buttons {
+    display: block;
+    margin-top: auto;
+}
+button {
+    border: 1px solid transparent;
+    cursor: pointer;
+}
+
+.btn-register {
+    display: block;
+    background-color: #16CEDA;
+    padding: 1rem 2rem;
+    font-weight: 600;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-left: auto;
+    margin-right: 1rem;
+}
+.btn-register:hover {
+    opacity: 0.8;
+}
+.btn-register a {
+    color: #242424;
+    text-decoration: none;
+    padding: 1rem 2rem;
+}
+.btn-register.registered {
+    opacity: 0.3;
+}
+.btn-register.registered a {
+    pointer-events: none;
+    cursor: none;
+}
+
+.btn-info, .btn-contact {
+    margin-top: auto;
+    border: 1px solid transparent;
+    background-color: transparent;
+    color: #FFF;
+}
+.btn-info:hover, .btn-contact:hover {
+    color: #16CEDA;
+}
+
+dialog {
+    width: clamp(320px, 50%, 480px);
+    padding: 1.25rem;
+}
+dialog .heading {
+    font-weight: bold;
+    font-size: 1.25rem;
+    margin-bottom: 0.5rem;
+}
+dialog p {
+    margin: 0.5rem 0;
+}
