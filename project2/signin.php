@@ -3,7 +3,7 @@
     $username = mysqli_real_escape_string($conn, $_POST['username'] ?? "");
     $password = mysqli_real_escape_string($conn, $_POST['password'] ?? "");
 
-    if (isset($_SESSION['signedin_ueventhub'])) {
+    if (isset($_SESSION['signedin_ikhalifah'])) {
         header('location: index.php');
         exit();
     }
@@ -23,7 +23,7 @@
                     $_SESSION['username'] = $user['username'];
                     $_SESSION['email'] = $user['email'];
                     $_SESSION['user_type'] = $user['user_type'];
-                    $_SESSION['signedin_ueventhub'] = 1;
+                    $_SESSION['signedin_ikhalifah'] = 1;
 
                     // Timestamp
                     try {
@@ -57,10 +57,12 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
     <link rel="stylesheet" href="css/base.css">
     <link rel="stylesheet" href="css/auth.css">
+    <link rel="stylesheet" href="css/header.css">
 
     <script src="https://kit.fontawesome.com/57a4458178.js" crossorigin="anonymous"></script>
 </head>
 <body>
+    <?php include('header.php'); ?>
     <main>
         <!-- <div class="background"> -->
             <div class="form-container">
