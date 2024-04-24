@@ -1,52 +1,52 @@
 <?php include_once('config.php') ?>
 <?php
-    $username = mysqli_real_escape_string($conn, $_POST['username'] ?? "");
-    $password = mysqli_real_escape_string($conn, $_POST['password'] ?? "");
+$username = mysqli_real_escape_string($conn, $_POST['username'] ?? "");
+$password = mysqli_real_escape_string($conn, $_POST['password'] ?? "");
 
-    if (isset($_SESSION['signedin_ikhalifah'])) {
-        header('location: index.php');
-        exit();
-    }
-    if (isset($_POST['submit'])) {
-        $query = "SELECT * FROM users WHERE username=?";
+if (isset($_SESSION['signedin_ikhalifah'])) {
+    header('location: index.php');
+    exit();
+}
+if (isset($_POST['submit'])) {
+    $query = "SELECT * FROM users WHERE username=?";
 
-        // prepared statement
-        $stmt = $conn->prepare($query);
-        $stmt->bind_param("s", $username);
-        $stmt->execute();
-        $result = $stmt->get_result();
-        if ($result) {
-            $user = $result->fetch_assoc();
-            if ($user) {
-                if (password_verify($password, $user['password'])) {
-                    $_SESSION['userId'] = $user['user_id'];
-                    $_SESSION['username'] = $user['username'];
-                    $_SESSION['email'] = $user['email'];
-                    $_SESSION['user_type'] = $user['user_type'];
-                    $_SESSION['signedin_ikhalifah'] = 1;
+    // prepared statement
+    $stmt = $conn->prepare($query);
+    $stmt->bind_param("s", $username);
+    $stmt->execute();
+    $result = $stmt->get_result();
+    if ($result) {
+        $user = $result->fetch_assoc();
+        if ($user) {
+            if (password_verify($password, $user['password'])) {
+                $_SESSION['userId'] = $user['user_id'];
+                $_SESSION['username'] = $user['username'];
+                $_SESSION['email'] = $user['email'];
+                $_SESSION['user_type'] = $user['user_type'];
+                $_SESSION['signedin_ikhalifah'] = 1;
 
-                    // Timestamp
-                    try {
-                        $userId = $user['user_id'];
-                        mysqli_query($conn, "UPDATE users SET signed_in=NOW() WHERE user_id=$userId");
-                    } catch (Exception $e) { }
-                    
-                    header('location: index.php');
-                    exit();
-                }    
-                else {
-                    $_SESSION['failed_signin_msg'] = "The username or password is incorrect";    
+                // Timestamp
+                try {
+                    $userId = $user['user_id'];
+                    mysqli_query($conn, "UPDATE users SET signed_in=NOW() WHERE user_id=$userId");
+                } catch (Exception $e) {
                 }
+
+                header('location: index.php');
+                exit();
             } else {
                 $_SESSION['failed_signin_msg'] = "The username or password is incorrect";
             }
-            
+        } else {
+            $_SESSION['failed_signin_msg'] = "The username or password is incorrect";
         }
     }
+}
 ?>
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -61,53 +61,58 @@
 
     <script src="https://kit.fontawesome.com/57a4458178.js" crossorigin="anonymous"></script>
 </head>
+
 <body>
     <?php include('header.php'); ?>
     <main>
         <!-- <div class="background"> -->
-            <div class="form-container">
-                <h1>Login</h1>
-                <p class="error-msg">
-                    <?php
-                        if (isset($_SESSION['failed_signin_msg'])) {
-                            echo $_SESSION['failed_signin_msg'] . "<br><br>";
-                            unset($_SESSION['failed_signin_msg']);
-                        }
-                    ?>
-                </p>
-                <form method="POST">
-                    <div class="form-group">
-                        <label for="email">Email Address/Alamat Emel</label>
-                        <div class="input">
-                            <i class="fa-regular fa-envelope"></i>
-                            <input type="email" id="email" placeholder="Email" name="email" required>
-                        </div>
+        <div class="form-container">
+            <h1>Login</h1>
+            <p class="error-msg">
+                <?php
+                if (isset($_SESSION['failed_signin_msg'])) {
+                    echo $_SESSION['failed_signin_msg'] . "<br><br>";
+                    unset($_SESSION['failed_signin_msg']);
+                }
+                ?>
+            </p>
+            <form method="POST">
+                <div class="form-group">
+                    <label for="email">Email Address/Alamat Emel</label>
+                    <div class="input">
+                        <i class="fa-regular fa-envelope"></i>
+                        <input type="email" id="email" placeholder="Email" name="email" required>
                     </div>
-                    <div class="form-group">
-                        <label for="password">Password/Kata Laluan</label>
-                        <div class="input">
-                            <i class="fa-solid fa-lock"></i>
-                            <input type="password" id="password" placeholder="Password" name="password" required>
-                            <i class="fa-regular fa-eye-slash show-password" id="togglePassword"></i>
-                        </div>
-                    </div>
-                    <div class="form-checkbox">
-                        <input type="checkbox" name="rememberme" id="rememberme">
-                        <label for="rememberme">Remember Me?</label>
-                    </div>
-                    <button type="submit" name="submit">
-                        <!-- <span class="material-symbols-outlined">login</span> -->
-                        Sign in
-                    </button>
-                </form>
-                <div class="links">
-                    <p>
-                        Don't have an account? 
-                        <a href="register.php">Sign up</a>
-                    </p>
-                    <a href="password-reset.php">Forgot Password?</a>
                 </div>
+                <div class="form-group">
+                    <label for="password">Password/Kata Laluan</label>
+                    <div class="input">
+                        <i class="fa-solid fa-lock"></i>
+                        <input type="password" id="password" placeholder="Password" name="password" required>
+                        <i class="fa-regular fa-eye-slash show-password" id="togglePassword"></i>
+                    </div>
+                </div>
+                <div class="form-checkbox">
+                    <input type="checkbox" name="rememberme" id="rememberme">
+                    <label for="rememberme">Remember Me?</label>
+                </div>
+                <div class="error-msg">
+                    <i class="fa-solid fa-circle-info"></i>
+                    Wrong email / password. Try again or click Forgot Password to reset account.
+                </div>
+                <button type="submit" name="submit">
+                    <!-- <span class="material-symbols-outlined">login</span> -->
+                    Sign in
+                </button>
+            </form>
+            <div class="links">
+                <p>
+                    Don't have an account?
+                    <a href="register.php">Sign up</a>
+                </p>
+                <a href="password-reset.php">Forgot Password?</a>
             </div>
+        </div>
         <!-- </div> -->
     </main>
     <script>
@@ -128,4 +133,5 @@
         });
     </script>
 </body>
+
 </html>

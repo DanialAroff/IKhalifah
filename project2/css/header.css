@@ -80,10 +80,10 @@ header input {
     align-items: center;
     justify-content: center;
     width: fit-content;
-    padding: 0.25rem;
+    padding: 0.25rem 0.5rem;
     background: transparent;
     border-radius: 2px;
-    margin-inline: 4px;
+    /* margin-inline: 4px; */
 }
 .btn-lang:hover {
     background-color: #bbbbbb27;
@@ -95,4 +95,8 @@ header input {
 }
 .btn-search:hover {
     background-color: #bbbbbb27;
+}
+
+.lang-border {
+    border-left: 1px solid #FFF;
 }

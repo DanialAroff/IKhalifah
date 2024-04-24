@@ -31,6 +31,7 @@ dialog {
 
 .error-msg {
     color: #D33434;
+    line-height: 1.2rem;
 }
 .d-flex {
     display: flex;

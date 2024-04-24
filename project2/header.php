@@ -9,8 +9,7 @@
             <div class="top-nav">
                 <div class="lang">
                     <button class="btn-lang-bm btn-lang">BM</button>
-                    |
-                    <button class="btn-lang-eng btn-lang">ENG</button>
+                    <button class="btn-lang-eng btn-lang lang-border">ENG</button>
                 </div>
                 <div class="location">
                     <i class="fa-solid fa-location-dot"></i>

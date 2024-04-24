@@ -121,6 +121,11 @@ main {
     transform: scale(1);
 } */
 
+.error-msg {
+    margin-top: 6px;
+    font-size: 0.875rem;
+}
+
 .hint-text {
     margin: 4px;
     text-align: start;
