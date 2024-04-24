@@ -19,6 +19,7 @@ header .title a {
 nav ul {
     display: flex;
     justify-content: space-between;
+    align-items: center;
     list-style: none;
     padding: 0;
     margin: 0;
@@ -32,7 +33,7 @@ ul li a {
 }
 ul li a:hover {
     background-color: #bbbbbb27;
-    text-decoration: underline;
+    text-decoration: none;
 }
 
 header input {
@@ -52,4 +53,46 @@ header input {
 
 [list]::-webkit-calendar-picker-indicator {
     opacity: 0;
+}
+
+.top-nav {
+    display: flex;
+    align-items: center;
+    justify-content: end;
+    column-gap: 8px;
+}
+
+.top-nav .location {
+    display: flex;
+    align-items: center;
+    column-gap: 8px;
+    font-size: 0.85rem;
+}
+
+.lang {
+    display: flex;
+    align-items: center;
+}
+.btn-lang {
+    font-size: 0.85rem;
+    /* min-width: 40px; */
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: fit-content;
+    padding: 0.25rem;
+    background: transparent;
+    border-radius: 2px;
+    margin-inline: 4px;
+}
+.btn-lang:hover {
+    background-color: #bbbbbb27;
+}
+.btn-search {
+    background: transparent;
+    width: fit-content;
+    margin: 0;
+}
+.btn-search:hover {
+    background-color: #bbbbbb27;
 }
