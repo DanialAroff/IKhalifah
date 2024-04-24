@@ -6,10 +6,10 @@
     // $email = "admin1@mail.com";
     // $password = "admin123";
     // $user_type = "admin";
-    $username = "organizer";
-    $email = "test03@mail.com";
+    $username = "user1";
+    $email = "user1@mail.com";
     $password = "123456";
-    $user_type = "organizer";
+    $user_type = "user";
     // exit();  
 
     $password = password_hash($password, PASSWORD_DEFAULT);
