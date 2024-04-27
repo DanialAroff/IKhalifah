@@ -1,10 +1,15 @@
+<link href="https://fonts.googleapis.com/css2?family=Marmelad&display=swap" rel="stylesheet">
 <header>
-    <div class="title">
+    <div class="title-box">
         <a href="index.php">
-            <img src="" alt="">
+            <img src="assets/img/ikhalifah_logo.jfif" alt="">
         </a>
+        <div class="title">
+            <p class="title-name">i-Khalifah</p>
+            <p class="title-subtext">Islamic science preschool</p>
+        </div>
     </div>
-    <div class="d-flex">
+    <div class="nav-container">
         <nav>
             <div class="top-nav">
                 <div class="lang">
@@ -17,19 +22,38 @@
                 </div>
             </div>
             <ul>
-                <?php
-                // if ($_SESSION['user_type'] == 'user') {
-                ?>
-                <!-- <li><a href="activity.php">Activity</a></li> -->
-                <?php
-                // } 
-                ?>
                 <li><a href="">About Us</a></li>
-                <li><a href="">Admissions</a></li>
-                <li><a href="">Event</a></li>
+                <li class="nav-admissions">
+                    <a href="#">Admissions</a>
+                    <div class="nav-admissions-sub sub-menu">
+                        <div class="container">
+                            <ul>
+                                <li><a href="">Register Student</a></li>
+                                <li><a href="">School Fees</a></li>
+                                <li><a href="">Categories</a></li>
+                                <li><a href="">Book Tour</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </li>
+                <li class="nav-event">
+                    <a href="">Event</a>
+                    <div class="nav-event-sub sub-menu">
+                        <div class="container">
+                            <ul>
+                                <li><a href="">Events List</a></li>
+                                <li><a href="">Upcoming Event</a></li>
+                                <li><a href="">Pictures</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </li>
                 <li><a href="">Career Opportunity</a></li>
-                <button class="btn-search">
+                <!-- <button class="btn-search">
                     <i class="fa-solid fa-magnifying-glass"></i>
+                </button> -->
+                <button class="btn-menu">
+                    
                 </button>
             </ul>
         </nav>
@@ -37,7 +61,7 @@
         <!-- <input list="events" name="events" placeholder="Search"> -->
         <!-- <datalist id="events"> -->
         <?php
-        include_once('config.php');
+            include_once('config.php');
         // $result = mysqli_query($conn, "SELECT * FROM events WHERE status=1 & approved=1"); 
         // while($row = mysqli_fetch_assoc($result)) {
         ?>
@@ -46,10 +70,25 @@
         ?>
         <!-- </datalist> -->
         <!-- </div> -->
-        <!-- <a href="signout.php" class="signout">
-            <span class="material-symbols-outlined">
-                logout
-            </span>
-        </a> -->
+
     </div>
+
+    <script>
+        const navNames = ['aboutus', 'admissions', 'event', 'careeroppt'];
+        const navAdmissions = document.querySelector('.nav-admissions');
+        const admissionsSub = document.querySelector('.nav-admissions-sub');
+
+        const initSub = (menu, submenu) => {
+            menu.addEventListener('mouseenter', e => {
+                submenu.style.display = 'block';
+            });
+
+            menu.addEventListener('mouseleave', e => {
+                submenu.style.display = 'none';
+            });
+        }
+
+        initSub(navAdmissions, admissionsSub);
+        initSub(document.querySelector('.nav-event'), document.querySelector('.nav-event-sub'));
+    </script>
 </header>

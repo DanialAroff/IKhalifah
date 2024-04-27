@@ -1,18 +1,18 @@
 <?php include_once('config.php') ?>
 <?php
-$username = mysqli_real_escape_string($conn, $_POST['username'] ?? "");
+$email = mysqli_real_escape_string($conn, $_POST['email'] ?? "");
 $password = mysqli_real_escape_string($conn, $_POST['password'] ?? "");
 
 if (isset($_SESSION['signedin_ikhalifah'])) {
-    header('location: index.php');
-    exit();
+    // header('location: index.php');
+    // exit();
 }
 if (isset($_POST['submit'])) {
-    $query = "SELECT * FROM users WHERE username=?";
+    $query = "SELECT * FROM users WHERE email=?";
 
-    // prepared statement
+    // Prepared statement
     $stmt = $conn->prepare($query);
-    $stmt->bind_param("s", $username);
+    $stmt->bind_param("s", $email);
     $stmt->execute();
     $result = $stmt->get_result();
     if ($result) {
@@ -25,7 +25,7 @@ if (isset($_POST['submit'])) {
                 $_SESSION['user_type'] = $user['user_type'];
                 $_SESSION['signedin_ikhalifah'] = 1;
 
-                // Timestamp
+                // Timestamp when signed in
                 try {
                     $userId = $user['user_id'];
                     mysqli_query($conn, "UPDATE users SET signed_in=NOW() WHERE user_id=$userId");
@@ -35,10 +35,10 @@ if (isset($_POST['submit'])) {
                 header('location: index.php');
                 exit();
             } else {
-                $_SESSION['failed_signin_msg'] = "The username or password is incorrect";
+                $_SESSION['failed_signin_msg'] = "Wrong email / password. Try again or click Forgot Password to reset account.";
             }
         } else {
-            $_SESSION['failed_signin_msg'] = "The username or password is incorrect";
+            $_SESSION['failed_signin_msg'] = "Wrong email / password. Try again or click Forgot Password to reset account.";
         }
     }
 }
@@ -63,17 +63,17 @@ if (isset($_POST['submit'])) {
 </head>
 
 <body>
-    <?php include('header.php'); ?>
+    <?php //include('header.php'); ?>
     <main>
         <!-- <div class="background"> -->
         <div class="form-container">
             <h1>Login</h1>
             <p class="error-msg">
                 <?php
-                if (isset($_SESSION['failed_signin_msg'])) {
-                    echo $_SESSION['failed_signin_msg'] . "<br><br>";
-                    unset($_SESSION['failed_signin_msg']);
-                }
+                // if (isset($_SESSION['failed_signin_msg'])) {
+                //     echo $_SESSION['failed_signin_msg'] . "<br><br>";
+                //     unset($_SESSION['failed_signin_msg']);
+                // }
                 ?>
             </p>
             <form method="POST">
@@ -94,27 +94,34 @@ if (isset($_POST['submit'])) {
                 </div>
                 <div class="form-checkbox">
                     <input type="checkbox" name="rememberme" id="rememberme">
-                    <label for="rememberme">Remember Me?</label>
+                    <label for="rememberme" aria-describedby="tooltip-rememberme">Remember Me?</label>
                 </div>
+                <?php 
+                    if (isset($_SESSION['failed_signin_msg'])) {
+                ?>
                 <div class="error-msg">
                     <i class="fa-solid fa-circle-info"></i>
-                    Wrong email / password. Try again or click Forgot Password to reset account.
+                    <?= $_SESSION['failed_signin_msg'] ?>
                 </div>
+                <?php
+                    unset($_SESSION['failed_signin_msg']);
+                    }
+                ?>
                 <button type="submit" name="submit">
-                    <!-- <span class="material-symbols-outlined">login</span> -->
                     Sign in
                 </button>
             </form>
             <div class="links">
                 <p>
                     Don't have an account?
-                    <a href="register.php">Sign up</a>
+                    <a href="register">Sign up</a>
                 </p>
                 <a href="password-reset.php">Forgot Password?</a>
             </div>
         </div>
         <!-- </div> -->
     </main>
+    <!-- <script src="https://unpkg.com/@popperjs/core@2"></script> -->
     <script>
         const pass = document.getElementById('password');
         const togglePass = document.getElementById('togglePassword');
