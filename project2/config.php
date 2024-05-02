@@ -1,5 +1,8 @@
 <?php
     session_start();
+
+    define('base_url', 'http://localhost/lwm-043/IKhalifah/project2');
+
     // DB init
     $server = "localhost";
     $username = "root";
