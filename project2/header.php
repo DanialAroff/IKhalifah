@@ -52,16 +52,38 @@
                 <!-- <button class="btn-search">
                     <i class="fa-solid fa-magnifying-glass"></i>
                 </button> -->
-                <button class="btn-menu">
-                    
-                </button>
+                <div id="menuContainer">
+                    <button class="btn-menu">
+                        <i class="fa-solid fa-bars"></i>
+                    </button>
+                    <div class="user-menu" id="userMenu">
+                        <ul>
+                            <li><a href="activities.php">Activities</a></li>
+                            <li><a href="contactus.php">Contact Us</a></li>
+                            <li><a href="faq.php">FAQ</a></li>
+
+                            <?php 
+                                if (!isset($_SESSION['signedin_ikhalifah'])) {
+                            ?>
+                            <li><a href="signin.php">Sign in</a></li>
+                            <?php } else { ?>
+
+                            <li class="sign-out-item">
+                                <i class="fa-solid fa-right-from-bracket"></i>
+                                <a href="signout.php">Sign out</a>
+                            </li>
+
+                            <?php } ?>
+                        </ul>
+                    </div>
+                </div>
             </ul>
         </nav>
         <!-- <div class="searchbar-container"> -->
         <!-- <input list="events" name="events" placeholder="Search"> -->
         <!-- <datalist id="events"> -->
         <?php
-            include_once('config.php');
+        include_once('config.php');
         // $result = mysqli_query($conn, "SELECT * FROM events WHERE status=1 & approved=1"); 
         // while($row = mysqli_fetch_assoc($result)) {
         ?>
@@ -90,5 +112,15 @@
 
         initSub(navAdmissions, admissionsSub);
         initSub(document.querySelector('.nav-event'), document.querySelector('.nav-event-sub'));
+
+        const userMenu = document.getElementById('userMenu');
+        const menuContainer = document.getElementById('menuContainer');
+
+        menuContainer.addEventListener('mouseenter', e => {
+            userMenu.style.display = 'block';
+        });
+        menuContainer.addEventListener('mouseleave', e => {
+            userMenu.style.display = 'none';
+        });
     </script>
 </header>

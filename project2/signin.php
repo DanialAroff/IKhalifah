@@ -4,8 +4,8 @@ $email = mysqli_real_escape_string($conn, $_POST['email'] ?? "");
 $password = mysqli_real_escape_string($conn, $_POST['password'] ?? "");
 
 if (isset($_SESSION['signedin_ikhalifah'])) {
-    // header('location: index.php');
-    // exit();
+    header('location: index.php');
+    exit();
 }
 if (isset($_POST['submit'])) {
     $query = "SELECT * FROM users WHERE email=?";
@@ -65,7 +65,6 @@ if (isset($_POST['submit'])) {
 <body>
     <?php //include('header.php'); ?>
     <main>
-        <!-- <div class="background"> -->
         <div class="form-container">
             <h1>Login</h1>
             <p class="error-msg">
@@ -119,7 +118,6 @@ if (isset($_POST['submit'])) {
                 <a href="password-reset.php">Forgot Password?</a>
             </div>
         </div>
-        <!-- </div> -->
     </main>
     <!-- <script src="https://unpkg.com/@popperjs/core@2"></script> -->
     <script>

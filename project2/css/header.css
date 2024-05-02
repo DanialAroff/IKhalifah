@@ -50,7 +50,7 @@ header .title-box a {
 nav ul {
     display: flex;
     justify-content: space-between;
-    align-items: center;
+    align-items: stretch;
     list-style: none;
     padding: 0;
     margin: 0;
@@ -63,7 +63,7 @@ ul li a {
     display: block;
     padding: 0.8rem 1rem;
 }
-ul li a:hover {
+ul li:hover {
     /* background-color: #bbbbbb27; */
     background-color: #F6CD5F;
     color: #252649;
@@ -75,14 +75,6 @@ header input {
     border: 1px solid transparent;
     border-radius: 4px;
     font-family: inherit;
-}
-
-.signout {
-    color: #FFF;
-    display: table;
-}
-.signout span {
-    vertical-align: middle;
 }
 
 [list]::-webkit-calendar-picker-indicator {
@@ -134,6 +126,7 @@ header input {
     background: transparent;
     color: #FFF;
     width: fit-content;
+    height: 100%;
     margin: 0;
     padding: 0.5rem 1rem;
     cursor: pointer;
@@ -180,4 +173,35 @@ header input {
 .sub-menu li a:hover {
     background-color: transparent;
     text-decoration: underline;
+}
+
+.user-menu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    right: 0;
+    background-color: #150B36;
+}
+.user-menu ul {
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+    text-align: start;
+}
+.user-menu ul li {
+    width: 100%;
+}
+.user-menu ul li a {
+    color: #FFF;
+    padding: 0.8rem 0.75rem;
+}
+.user-menu ul li a:hover {
+    color: #150B36;
+}
+
+.sign-out-item {
+    color: #FFF;
+    display: flex;
+    align-items: center;
+    padding: 0 0.75rem;
 }
