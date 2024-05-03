@@ -1,8 +1,8 @@
 <link href="https://fonts.googleapis.com/css2?family=Marmelad&display=swap" rel="stylesheet">
 <header>
     <div class="title-box">
-        <a href="index.php">
-            <img src="assets/img/ikhalifah_logo.jfif" alt="">
+        <a href="<?= base_url ?>">
+            <img src="<?= base_url ?>/assets/img/ikhalifah_logo.jfif" alt="">
         </a>
         <div class="title">
             <p class="title-name">i-Khalifah</p>
@@ -22,7 +22,7 @@
                 </div>
             </div>
             <ul>
-                <li><a href="">About Us</a></li>
+                <li><a href="<?= base_url ?>/aboutus.php">About Us</a></li>
                 <li class="nav-admissions">
                     <a href="#">Admissions</a>
                     <div class="nav-admissions-sub sub-menu">
@@ -37,7 +37,7 @@
                     </div>
                 </li>
                 <li class="nav-event">
-                    <a href="">Event</a>
+                    <a href="<?= base_url ?>/event/event.php">Event</a>
                     <div class="nav-event-sub sub-menu">
                         <div class="container">
                             <ul>
@@ -58,20 +58,20 @@
                     </button>
                     <div class="user-menu" id="userMenu">
                         <ul>
-                            <li><a href="activities.php">Activities</a></li>
-                            <li><a href="contactus.php">Contact Us</a></li>
-                            <li><a href="faq.php">FAQ</a></li>
+                            <li><a href="<?= base_url ?>/activities.php">Activities</a></li>
+                            <li><a href="<?= base_url ?>/contactus.php">Contact Us</a></li>
+                            <li><a href="<?= base_url ?>/faq.php">FAQ</a></li>
 
-                            <?php 
-                                if (!isset($_SESSION['signedin_ikhalifah'])) {
+                            <?php
+                            if (!isset($_SESSION['signedin_ikhalifah'])) {
                             ?>
-                            <li><a href="signin.php">Sign in</a></li>
+                                <li><a href="<?= base_url ?>/signin.php">Sign in</a></li>
                             <?php } else { ?>
 
-                            <li class="sign-out-item">
-                                <i class="fa-solid fa-right-from-bracket"></i>
-                                <a href="signout.php">Sign out</a>
-                            </li>
+                                <li class="sign-out-item">
+                                    <i class="fa-solid fa-right-from-bracket"></i>
+                                    <a href="<?= base_url ?>/signout.php">Sign out</a>
+                                </li>
 
                             <?php } ?>
                         </ul>

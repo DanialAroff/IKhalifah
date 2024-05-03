@@ -1,47 +1,48 @@
 <?php
-include_once('config.php');
+    require_once('config.php');
 
-if (isset($_POST['submit'])) {
-    $username = mysqli_real_escape_string($conn, $_POST['username'] ?? "");
-    $email = mysqli_real_escape_string($conn, $_POST['email'] ?? "");
-    $password = mysqli_real_escape_string($conn, $_POST['password'] ?? "");
-    $password2 = mysqli_real_escape_string($conn, $_POST['repassword'] ?? "");
-    $userType = 'user';
+    if (isset($_POST['submit'])) {
+        $username = mysqli_real_escape_string($conn, $_POST['username'] ?? "");
+        $email = mysqli_real_escape_string($conn, $_POST['email'] ?? "");
+        $password = mysqli_real_escape_string($conn, $_POST['password'] ?? "");
+        $password2 = mysqli_real_escape_string($conn, $_POST['repassword'] ?? "");
+        $userType = 'user';
 
-    if ($password !== $password2) {
-        $_SESSION['register_err_msg'] = 'Password are not the same';
-        header('location: register');
-        exit();
-    }
+        if ($password !== $password2) {
+            $_SESSION['register_err_msg'] = 'Password are not the same';
+            header('location: register');
+            exit();
+        }
 
-    // check if username already exist
-    // https://stackoverflow.com/questions/17736421/how-to-prevent-duplicate-usernames-when-people-register
-    $query1 = "SELECT * FROM users WHERE username=?";
-    $stmt = $conn->prepare($query1);
-    $stmt->bind_param("s", $username);
-    $stmt->execute();
-    $result = $stmt->get_result();
-    $row = $result->fetch_row();
-    if ($row) {
-        // echo 'Username already exist';
-        // print_r($row);
-        // exit();
-        $_SESSION['register_err_msg'] = "Username has already been taken";
-        $stmt->free_result();
-    } else {
-        $password = password_hash($password, PASSWORD_DEFAULT);
-
-        $query = "INSERT INTO users (username, email, password, user_type) VALUES (?, ?, ?, ?)";
-        $stmt = $conn->prepare($query);
-        $stmt->bind_param("ssss", $username, $email, $password, $userType);
+        // check if username already exist
+        // https://stackoverflow.com/questions/17736421/how-to-prevent-duplicate-usernames-when-people-register
+        $query1 = "SELECT * FROM users WHERE username=?";
+        $stmt = $conn->prepare($query1);
+        $stmt->bind_param("s", $username);
         $stmt->execute();
-
         $result = $stmt->get_result();
-        if ($result) {
-            header('location: signup-success.php');
+        $row = $result->fetch_row();
+        if ($row) {
+            $_SESSION['register_err_msg'] = "Username has already been taken";
+            $stmt->free_result();
+
+        } else {
+            $password = password_hash($password, PASSWORD_DEFAULT);
+            $prefix = date('Ym-');
+            $code = sprintf("%'.05d", 1);
+            $user_code = $prefix.$code;
+
+            $query = "INSERT INTO users (user_code, username, email, password, user_type) VALUES (?, ?, ?, ?, ?)";
+            $stmt = $conn->prepare($query);
+            $stmt->bind_param("sssss", $user_code, $username, $email, $password, $userType);
+            $stmt->execute();
+
+            $result = $stmt->get_result();
+            if ($result) {
+                header('location: signup-success.php');
+            }
         }
     }
-}
 ?>
 
 <!DOCTYPE html>

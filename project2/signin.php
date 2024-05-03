@@ -1,4 +1,4 @@
-<?php include_once('config.php') ?>
+<?php require_once('config.php') ?>
 <?php
 $email = mysqli_real_escape_string($conn, $_POST['email'] ?? "");
 $password = mysqli_real_escape_string($conn, $_POST['password'] ?? "");

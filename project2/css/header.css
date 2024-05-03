@@ -64,10 +64,12 @@ ul li a {
     padding: 0.8rem 1rem;
 }
 ul li:hover {
-    /* background-color: #bbbbbb27; */
     background-color: #F6CD5F;
-    color: #252649;
+    color: #150B36;
     text-decoration: none;
+}
+ul li:hover {
+    color: #150B36;
 }
 
 header input {
@@ -173,6 +175,7 @@ header input {
 .sub-menu li a:hover {
     background-color: transparent;
     text-decoration: underline;
+    color: #150B36;
 }
 
 .user-menu {
