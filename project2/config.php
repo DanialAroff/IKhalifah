@@ -1,7 +1,7 @@
 <?php
     session_start();
 
-    define('base_url', 'http://localhost/lwm-043/IKhalifah/project2');
+    define('base_url', 'http://localhost/lwm-043/IKhalifah/project2'); // change url according to project path
 
     // DB init
     $server = "localhost";

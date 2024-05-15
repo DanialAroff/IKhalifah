@@ -2,7 +2,7 @@
 <header>
     <div class="title-box">
         <a href="<?= base_url ?>">
-            <img src="<?= base_url ?>/assets/img/ikhalifah_logo.jfif" alt="">
+            <img src="<?= base_url ?>/assets/img/khalifah_garden_logo-removebg.png" alt="">
         </a>
         <div class="title">
             <p class="title-name">i-Khalifah</p>
@@ -69,8 +69,10 @@
                             <?php } else { ?>
 
                                 <li class="sign-out-item">
-                                    <i class="fa-solid fa-right-from-bracket"></i>
-                                    <a href="<?= base_url ?>/signout.php">Sign out</a>
+                                    <a href="<?= base_url ?>/signout.php">
+                                        <i class="fa-solid fa-right-from-bracket"></i>
+                                        <p>Sign out</p>
+                                    </a>
                                 </li>
 
                             <?php } ?>
