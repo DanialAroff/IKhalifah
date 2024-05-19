@@ -42,7 +42,8 @@ header {
 }
 .title-subtext {
     font-size: 0.875rem;
-    color: red;
+    /* color: red; */
+    color: var(--secondary-color);
 }
 
 .nav-container {
@@ -67,7 +68,7 @@ ul li a {
     padding: 0.8rem 1rem;
 }
 ul li:hover {
-    background-color: #F6CD5F;
+    background-color: var(--secondary-color);
     color: #150B36;
     text-decoration: none;
 }
@@ -151,7 +152,7 @@ header input {
     /* top: 100%; */
     left: 0;
     padding: 1rem;
-    background-color: #F6CD5F;
+    background-color: var(--secondary-color);
 }
 .sub-menu .container {
     display: flex;

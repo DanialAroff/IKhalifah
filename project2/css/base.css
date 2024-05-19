@@ -1,3 +1,7 @@
+:root {
+    --secondary-color: #F6CD5F;
+    --text-color-1: #212121;
+}
 * {
     box-sizing: border-box;
     font-size: 16px;
@@ -15,6 +19,12 @@ html, body {
     background-repeat: no-repeat;
     background-attachment: fixed;
     height: 100%;
+}
+
+.main-container {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
 }
 
 main {
@@ -70,4 +80,22 @@ dialog {
 h1.title {
     font-size: 2rem;
     color: #121212;
+}
+h1.page-title {
+    margin: 0;
+    margin-bottom: 0.75rem;
+    color: var(--text-color-1);
+    font-size: 2rem;
+    font-family: 'Marmelad';
+}
+
+/* Footer */
+footer {
+    margin-top: auto;
+    display: flex;
+    padding: 1rem 0.75rem;
+    background-color: #111127;
+    /* background-color: #DDD; */
+    color: #FFF;
+    font-size: 0.875rem;
 }

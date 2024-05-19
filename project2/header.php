@@ -17,8 +17,9 @@
                     <button class="btn-lang-eng btn-lang lang-border">ENG</button>
                 </div>
                 <div class="location">
-                    <i class="fa-solid fa-location-dot"></i>
-                    <div class="location-country-name">Malaysia</div>
+                    <!-- <i class="fa-solid fa-location-dot"></i> -->
+                    <i class="fa-solid fa-phone"></i>
+                    <div class="location-country-name">+03-XXXXXXX</div>
                 </div>
             </div>
             <ul>
@@ -48,7 +49,7 @@
                         </div>
                     </div>
                 </li>
-                <li><a href="">Career Opportunity</a></li>
+                <!-- <li><a href="">Career Opportunity</a></li> -->
                 <!-- <button class="btn-search">
                     <i class="fa-solid fa-magnifying-glass"></i>
                 </button> -->
