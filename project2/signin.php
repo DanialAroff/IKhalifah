@@ -201,7 +201,7 @@ if (isset($_SESSION['signedin_ikhalifah'])) {
                 loadingScreen.style.display = 'none';
 
                 // Redirect to success page or display login successful message
-            }, 1500);
+            }, 2000);
         });
     </script>
     <script>

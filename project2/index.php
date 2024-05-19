@@ -23,18 +23,21 @@
 </head>
 
 <body>
-    <?php include('header.php'); ?>
-    <main>
-        <section class="banner">
-            <div class="cto-1">
-                <p>Lighten up the kids future with 'Iman</p>
-                <button class="btn-inquire">Inquire Now</button>
-            </div>
-        </section>
-    </main>
-    <!-- <section class="section-2">
-        Section 2
-    </section> -->
+    <div class="main-container">
+        <?php include('header.php'); ?>
+        <main>
+            <section class="banner">
+                <div class="cto-1">
+                    <p>Lighten up the kids future with 'Iman</p>
+                    <button class="btn-inquire">Inquire Now</button>
+                </div>
+            </section>
+        </main>
+        <!-- <section class="section-2">
+            Section 2
+        </section> -->
+        <?php include('inc/footer.php'); ?>
+    </div>
 </body>
 
 </html>
