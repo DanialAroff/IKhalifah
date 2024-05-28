@@ -29,8 +29,8 @@
                     <div class="nav-admissions-sub sub-menu">
                         <div class="container">
                             <ul>
-                                <li><a href="">Register Student</a></li>
-                                <li><a href="">School Fees</a></li>
+                                <li><a href="<?= base_url ?>/registerstudent.php">Register Student</a></li>
+                                <li><a href="<?= base_url ?>/fees.php">School Fees</a></li>
                                 <li><a href="">Categories</a></li>
                                 <li><a href="">Book Tour</a></li>
                             </ul>
