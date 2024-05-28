@@ -20,9 +20,15 @@ include('issignedin.php');
     <script src="https://kit.fontawesome.com/57a4458178.js" crossorigin="anonymous"></script>
     <style>
         main {
-            margin: 1.875rem;
+            margin: 1.75rem;
+            padding: 1.5rem;
             background-color: #F1F1F1;
             background-color: #FEFEFE;
+            border-radius: 4px;
+        }
+
+        main p {
+            margin-bottom: 10px;
         }
     </style>
 </head>
@@ -34,8 +40,16 @@ include('issignedin.php');
             <h1 class="page-title">
                 About Us
             </h1>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Possimus dolores natus esse at accusantium deserunt eveniet quidem mollitia quis distinctio?</p>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Cupiditate voluptas quos illum. Nihil iure aliquam debitis eum harum consequatur sapiente iste? Enim consequatur asperiores vero, aliquam ullam deleniti. Ea quos, sit porro expedita aliquid dignissimos sint nostrum molestias dicta quod eaque nobis reiciendis consectetur consequuntur inventore ipsam quia provident, voluptas nihil ducimus non enim. Aut deleniti fuga reiciendis ipsa consequuntur nostrum aliquam culpa ad delectus amet provident nisi eius, iure libero dignissimos optio, dolor animi? Rem veniam optio repellat ab deserunt dolorum quisquam, nobis tempore molestiae, pariatur deleniti dolorem harum qui quae. Cum distinctio at tempora ea recusandae aspernatur exercitationem quod mollitia! Maxime rerum necessitatibus aut, et aperiam reprehenderit blanditiis tenetur velit cumque officia veritatis sequi ullam corporis. Ea, nihil molestiae vero quas doloribus ab repellendus repellat iste perferendis ipsa, nemo est! Odit, unde. Beatae dolores eaque ut pariatur molestias quae esse. Architecto quidem debitis repellat? Numquam ut, commodi amet blanditiis rerum modi officiis consequuntur maiores, facilis voluptatem quaerat provident iure labore. Dolore deleniti itaque, aut expedita blanditiis molestias recusandae ex a! Molestiae natus quidem tempora impedit odit aliquam, commodi quisquam saepe amet! Libero voluptas, corrupti nisi ducimus id labore, incidunt, minus enim quod ipsa deleniti vel voluptatum ea molestiae!</p>
+            <p>
+                <strong>Khalifah Garden Kindergarten</strong> is a nurturing and stimulating learning environment where children blossom and grow. We provide a play-based curriculum that fosters curiosity, creativity, and a love for learning.
+            </p>
+            <p>
+                At Khalifah Garden Kindergarten, we believe in nurturing the whole child – intellectually, socially,
+                emotionally, and physically. Our dedicated teachers create a warm and welcoming environment where children feel safe to explore, discover, and learn through play.
+            </p>
+            <p>
+                Khalifah Garden Kindergarten is a place where children can make lifelong friendships, develop a love for learning, and prepare for a successful future.
+            </p>
         </main>
         <?php include('inc/footer.php'); ?>
     </div>
