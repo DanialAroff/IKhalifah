@@ -20,7 +20,7 @@ include_once('config.php');
     <style>
         main {
             margin: 1.75rem;
-            padding: 1.5rem;
+            padding: 0;
             background-color: #FEFEFE;
             border-radius: 4px;
         }
@@ -35,8 +35,8 @@ include_once('config.php');
         }
 
         .fees-card--header {
-            background-color: var(--primary-color);
-            color: #FFF;
+            background-color: #DDD;
+            color: var(--primary-color);
             padding: 0.875rem 0.75rem;
             overflow: hidden;
         }
@@ -76,42 +76,44 @@ include_once('config.php');
             <h1 class="page-title">
                 School Fees
             </h1>
-            <div class="fees-card">
-                <div class="fees-card--header">Application and Enrolment</div>
-                <table>
-                    <tr>
-                        <td class="col--item">
-                            1. <strong>Registration fees</strong>
-                            <p class="note">Payable upon submission of Application Form</p>
-                        </td>
-                        <td class="col--fees">RM 500</td>
-                    </tr>
-                    <tr>
-                        <td class="col--item">
-                            2. <strong>Enrolment fee, non-refundable</strong>
-                            <p class="note">To be paid to confirm the placement of a child</p>
-                        </td>
-                        <td class="col--fees">RM 2,000</td>
-                    </tr>
-                </table>
-            </div>
-            <!-- Fees -->
-            <div class="fees-card">
-                <div class="fees-card--header">Fees</div>
-                <table>
-                    <tr>
-                        <td class="col--item">
-                            1. School fees are inclusive of all books, materials and resources.
-                        </td>
-                        <!-- <td class="col--fees">RM 1,500</td> -->
-                    </tr>
-                    <tr>
-                        <td class="col--item">
-                            2. A parent deposit is required for each child. The deposit is refundable when the child leaves the school with sufficient notification (one full term’s notice).
-                        </td>
-                        <!-- <td class="col--fees">RM 5,000</td> -->
-                    </tr>
-                </table>
+            <div class="content">
+                <div class="fees-card">
+                    <div class="fees-card--header">Application and Enrolment</div>
+                    <table>
+                        <tr>
+                            <td class="col--item">
+                                1. <strong>Registration fees</strong>
+                                <p class="note">Payable upon submission of Application Form</p>
+                            </td>
+                            <td class="col--fees">RM 500</td>
+                        </tr>
+                        <tr>
+                            <td class="col--item">
+                                2. <strong>Enrolment fee, non-refundable</strong>
+                                <p class="note">To be paid to confirm the placement of a child</p>
+                            </td>
+                            <td class="col--fees">RM 2,000</td>
+                        </tr>
+                    </table>
+                </div>
+                <!-- Fees -->
+                <div class="fees-card">
+                    <div class="fees-card--header">Fees</div>
+                    <table>
+                        <tr>
+                            <td class="col--item">
+                                1. School fees are inclusive of all books, materials and resources.
+                            </td>
+                            <!-- <td class="col--fees">RM 1,500</td> -->
+                        </tr>
+                        <tr>
+                            <td class="col--item">
+                                2. A parent deposit is required for each child. The deposit is refundable when the child leaves the school with sufficient notification (one full term’s notice).
+                            </td>
+                            <!-- <td class="col--fees">RM 5,000</td> -->
+                        </tr>
+                    </table>
+                </div>
             </div>
         </main>
         <?php include('inc/footer.php'); ?>
