@@ -1,6 +1,7 @@
 :root {
     --primary-color: #111127;
     --secondary-color: #F6CD5F;
+    --accent-color: #1A1A3B;
     --text-color-1: #212121;
     --text-color-2: #0C0C1D;
 }
@@ -31,6 +32,7 @@ html, body {
 
 main {
     padding: 1rem;
+    overflow: hidden;
 }
 p {
     margin: 0;
@@ -50,8 +52,10 @@ dialog {
 }
 .d-flex {
     display: flex;
-    align-items: center;
     column-gap: 10px;
+}
+.flex-column {
+    flex-direction: column;
 }
 .content {
     padding: 1rem;
@@ -104,6 +108,10 @@ h1.page-title {
     background: var(--primary-color);
     color: #FFF;
     padding: 1.25rem;
+    overflow: hidden;
+}
+.underline-1 {
+    border-bottom: 2px solid var(--accent-color);
 }
 
 /* Footer */
