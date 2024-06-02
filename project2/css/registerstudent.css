@@ -8,3 +8,47 @@ main {
 .form-section {
     margin-bottom: 1rem;
 }
+
+.form-group-multiple {
+    display: flex;
+    width: 100%;
+    column-gap: 8px;
+}
+.form-group {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 4px;
+}
+.form-group label, .form-group-address label {
+    margin-bottom: 2px;
+    font-size: 0.875rem;
+}
+.form-group input, .form-group select, .form-group-address input {
+    border: 1px solid #adadad;
+    padding: 0.5rem;
+    border-radius: 4px;  
+}
+.form-group input[type="date"] {
+    font-size: inherit;
+    font-family: inherit;
+    padding: 0.25rem;
+}
+.form-group-address {
+    display: flex;
+    flex-direction: column;
+}
+
+form .btn-submit {
+    margin-left: auto;
+    padding: 0.5rem;
+    background-color: var(--primary-color);
+    color: #FFF;
+    border: 1px solid transparent;
+    border-radius: 4px;
+    cursor: pointer;
+    min-width: 120px;
+}
+form .btn-submit:hover {
+    opacity: 0.75;
+}
