@@ -44,7 +44,7 @@
                             <ul>
                                 <li><a href="">Events List</a></li>
                                 <li><a href="">Upcoming Event</a></li>
-                                <li><a href="">Pictures</a></li>
+                                <li><a href="">Photos</a></li>
                             </ul>
                         </div>
                     </div>

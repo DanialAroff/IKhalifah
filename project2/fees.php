@@ -1,6 +1,5 @@
 <?php
 include_once('config.php');
-include('issignedin.php');
 ?>
 
 <!DOCTYPE html>
@@ -22,7 +21,6 @@ include('issignedin.php');
         main {
             margin: 1.75rem;
             padding: 1.5rem;
-            background-color: #F1F1F1;
             background-color: #FEFEFE;
             border-radius: 4px;
         }
@@ -32,8 +30,6 @@ include('issignedin.php');
         }
 
         .fees-card {
-            /* border-radius: 6px; */
-            width: clamp(320px, 50%, 640px);
             box-shadow: 0 10px 20px rgba(0, 0, 0, 0.125);
             margin-bottom: 20px;
         }
@@ -85,17 +81,17 @@ include('issignedin.php');
                 <table>
                     <tr>
                         <td class="col--item">
-                            1. <strong>Application fees</strong>
+                            1. <strong>Registration fees</strong>
                             <p class="note">Payable upon submission of Application Form</p>
                         </td>
-                        <td class="col--fees">RM 1,500</td>
+                        <td class="col--fees">RM 500</td>
                     </tr>
                     <tr>
                         <td class="col--item">
                             2. <strong>Enrolment fee, non-refundable</strong>
                             <p class="note">To be paid to confirm the placement of a child</p>
                         </td>
-                        <td class="col--fees">RM 5,000</td>
+                        <td class="col--fees">RM 2,000</td>
                     </tr>
                 </table>
             </div>

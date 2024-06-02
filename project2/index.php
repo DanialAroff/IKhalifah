@@ -1,7 +1,6 @@
 <?php
     require_once('config.php');
     include('init_user.php');
-    include('issignedin.php');
 ?>
 
 <!DOCTYPE html>

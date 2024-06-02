@@ -1,6 +1,5 @@
 <?php
 include_once('config.php');
-include('issignedin.php');
 ?>
 
 <!DOCTYPE html>

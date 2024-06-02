@@ -53,11 +53,17 @@ dialog {
     align-items: center;
     column-gap: 10px;
 }
+.content {
+    padding: 1rem;
+}
 .p {
     padding: 1rem;
 }
 .m-b {
     margin-bottom: 1rem;
+}
+.m-b-sm {
+    margin-bottom: 0.875rem;
 }
 .m-t {
     margin-top: 1rem;
@@ -81,6 +87,9 @@ dialog {
 .font-l {
     font-size: 1.5rem;
 }
+.text-bold {
+    font-weight: bold;
+}
 
 h1.title {
     font-size: 2rem;
@@ -88,10 +97,13 @@ h1.title {
 }
 h1.page-title {
     margin: 0;
-    margin-bottom: 16px;
+    /* margin-bottom: 16px; */
     color: var(--text-color-2);
     font-size: 2rem;
     font-family: 'Marmelad';
+    background: var(--primary-color);
+    color: #FFF;
+    padding: 1.25rem;
 }
 
 /* Footer */
