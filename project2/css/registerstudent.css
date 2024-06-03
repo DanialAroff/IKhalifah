@@ -1,10 +1,21 @@
 main {
     margin: 1.75rem;
     padding: 0;
-    background-color: #FEFEFE;
     border-radius: 4px;
+    display: grid;
+    place-items: center;
 }
 
+.container {
+    background-color: #FEFEFE;
+    width: clamp(480px 100%, 640px);
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+form {
+    padding: 0 0.5rem;
+}
 .form-section {
     margin-bottom: 1rem;
 }
@@ -18,21 +29,24 @@ main {
     flex: 1;
     display: flex;
     flex-direction: column;
-    margin-bottom: 4px;
+    /* margin-bottom: 8px; */
 }
 .form-group label, .form-group-address label {
     margin-bottom: 2px;
-    font-size: 0.875rem;
+    font-size: 1rem;
+    color: #444;
 }
 .form-group input, .form-group select, .form-group-address input {
-    border: 1px solid #adadad;
+    border: 1px solid #AAA;
     padding: 0.5rem;
     border-radius: 4px;  
+    font-size: 1.25rem;
+    margin-bottom: 8px;
 }
 .form-group input[type="date"] {
     font-size: inherit;
     font-family: inherit;
-    padding: 0.25rem;
+    padding: 0.5rem;
 }
 .form-group-address {
     display: flex;
@@ -41,13 +55,14 @@ main {
 
 form .btn-submit {
     margin-left: auto;
-    padding: 0.5rem;
+    padding: 0.75rem;
     background-color: var(--primary-color);
     color: #FFF;
+    font-size: 1.125rem;
     border: 1px solid transparent;
     border-radius: 4px;
     cursor: pointer;
-    min-width: 120px;
+    min-width: 150px;
 }
 form .btn-submit:hover {
     opacity: 0.75;

@@ -4,6 +4,7 @@
     --accent-color: #1A1A3B;
     --text-color-1: #212121;
     --text-color-2: #0C0C1D;
+    --text-color-3: #747474;
 }
 * {
     box-sizing: border-box;
@@ -54,6 +55,12 @@ dialog {
     display: flex;
     column-gap: 10px;
 }
+.justify-center {
+    justify-content: center;
+}
+.justify-end {
+    justify-content: end;
+}
 .flex-column {
     flex-direction: column;
 }
@@ -94,6 +101,9 @@ dialog {
 .text-bold {
     font-weight: bold;
 }
+.text-color-3 {
+    color: var(--text-color-3);
+}
 
 h1.title {
     font-size: 2rem;
@@ -119,7 +129,7 @@ footer {
     margin-top: auto;
     display: flex;
     padding: 0.75rem 0.675rem;
-    background-color: #111127;
+    background-color: #150B36;
     /* background-color: #DDD; */
     color: #FFF;
 }

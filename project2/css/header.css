@@ -6,7 +6,6 @@ header {
     min-height: 80px;
     max-height: 100px;
     width: 100%;
-    /* background-color: #252649; */
     background-color: #150B36;
 }
 
@@ -27,7 +26,6 @@ header {
 .title-box a img {
     width: 100%;
     height: auto;
-    /* object-fit: cover; */
 }
 
 .title {
@@ -48,7 +46,6 @@ header {
 
 .nav-container {
     display: flex;
-    padding-inline: 0.75rem;
 }
 
 nav ul {
@@ -94,6 +91,7 @@ header input {
     column-gap: 8px;
     margin: 0.25rem 0;
     padding-top: 0.8rem;
+    padding-inline: 0.75rem;
 }
 
 .top-nav .location {
@@ -127,8 +125,12 @@ header input {
     background-color: #bbbbbb27;
 }
 .btn-menu {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    column-gap: 8px;
     border: 1px solid transparent;
-    border-radius: 6px;
+    /* border-radius: 6px; */
     background: transparent;
     color: #FFF;
     width: fit-content;
@@ -136,6 +138,9 @@ header input {
     margin: 0;
     padding: 0.5rem 1rem;
     cursor: pointer;
+}
+.btn-menu i {
+    font-size: 18px;
 }
 .btn-search:hover {
     background-color: #bbbbbb27;
@@ -153,10 +158,6 @@ header input {
     left: 0;
     padding: 1rem;
     background-color: var(--secondary-color);
-}
-.sub-menu .container {
-    display: flex;
-    justify-content: end;
 }
 .sub-menu ul {
     flex-direction: column;
@@ -221,4 +222,8 @@ header input {
 }
 .sign-out-item p {
     font-size: 1.1rem;
+}
+
+.signin {
+    background: var(--primary-color);
 }

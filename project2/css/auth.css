@@ -67,7 +67,7 @@ main {
     margin-bottom: 4px;
 }
 .form-group input {
-    border: 1px solid #aaaaaa;
+    border: 1px solid #AAA;
     border-radius: 8px;
     background-color: #FFF;
     padding: var(--input-field-padding-y) var(--input-field-padding-x);
@@ -122,6 +122,7 @@ main {
 } */
 
 .error-msg {
+    display: none;
     margin-top: 6px;
     font-size: 0.875rem;
 }
