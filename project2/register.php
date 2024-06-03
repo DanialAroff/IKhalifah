@@ -6,7 +6,7 @@
         $email = mysqli_real_escape_string($conn, $_POST['email'] ?? "");
         $password = mysqli_real_escape_string($conn, $_POST['password'] ?? "");
         $password2 = mysqli_real_escape_string($conn, $_POST['repassword'] ?? "");
-        $userType = 'user';
+        $userType = 'parent';
 
         if ($password !== $password2) {
             $_SESSION['register_err_msg'] = 'Password are not the same';
@@ -39,7 +39,7 @@
 
             $result = $stmt->get_result();
             if ($result) {
-                header('location: signup-success.php');
+                header('location: signup_success.php');
             }
         }
     }

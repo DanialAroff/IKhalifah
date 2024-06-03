@@ -1,36 +1,37 @@
 <?php
-    include_once('config.php');
-    include('issignedin.php');
+include_once('config.php');
+include('issignedin.php');
 
-    if (isset($_POST['save'])) {
-        // If password is changed
-        $username = mysqli_real_escape_string($conn, $_POST['username']);
-        $email = mysqli_real_escape_string($conn, $_POST['email']);
-        $password = mysqli_real_escape_string($conn, $_POST['password']);
-        $userId = $_SESSION['userId'];
+if (isset($_POST['save'])) {
+    // If password is changed
+    $username = mysqli_real_escape_string($conn, $_POST['username']);
+    $email = mysqli_real_escape_string($conn, $_POST['email']);
+    $password = mysqli_real_escape_string($conn, $_POST['password']);
+    $userId = $_SESSION['userId'];
 
-        $stmt;
-        if ($password) {
-            $stmt = $conn->prepare("UPDATE users SET username=?, email=?, password=? WHERE user_id=?");
-            $password = password_hash($password, PASSWORD_DEFAULT);
-            $stmt->bind_param("ssss", $username, $email, $password, $userId);
-        } else {
-            $stmt = $conn->prepare("UPDATE users SET username=?, email=? WHERE user_id=?");
-            $stmt->bind_param("sss", $username, $email, $userId);
-        }
-
-        $result = $stmt->execute();
-        if ($result) {
-            $result = mysqli_query($conn, "SELECT * FROM users WHERE user_id=$userId");
-            $row = $result->fetch_assoc();
-            $_SESSION['username'] = $row['username'];
-            $_SESSION['email'] = $row['email'];
-        }
+    $stmt;
+    if ($password) {
+        $stmt = $conn->prepare("UPDATE users SET username=?, email=?, password=? WHERE user_id=?");
+        $password = password_hash($password, PASSWORD_DEFAULT);
+        $stmt->bind_param("ssss", $username, $email, $password, $userId);
+    } else {
+        $stmt = $conn->prepare("UPDATE users SET username=?, email=? WHERE user_id=?");
+        $stmt->bind_param("sss", $username, $email, $userId);
     }
+
+    $result = $stmt->execute();
+    if ($result) {
+        $result = mysqli_query($conn, "SELECT * FROM users WHERE user_id=$userId");
+        $row = $result->fetch_assoc();
+        $_SESSION['username'] = $row['username'];
+        $_SESSION['email'] = $row['email'];
+    }
+}
 ?>
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -39,20 +40,24 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/header.css">
     <link rel="stylesheet" href="css/profile.css">
+
+    <script src="https://kit.fontawesome.com/57a4458178.js" crossorigin="anonymous"></script>
 </head>
+
 <body>
     <?php include('header.php'); ?>
     <main>
-        <!-- <h1 class="main-heading">Profile</h1> -->
         <div class="container">
             <div class="row">
                 <div class="img-container">
                     <img src="" alt="">
                 </div>
                 <div class="details">
-                    <h2><?= $_SESSION['username'] ?></h2>
-                    <p><?= $_SESSION['email'] ?></p>
+                    <p class="font"><?= $_SESSION['userType'] ?></p>
+                    <h2 style="font-size: 1.35rem"><?= $_SESSION['username'] ?></h2>
+                    <p style="color: #CCC"><?= $_SESSION['email'] ?></p>
                     <button class="btn-edit-profile">Edit profile</button>
                 </div>
             </div>
@@ -136,4 +141,5 @@
         });
     </script>
 </body>
+
 </html>

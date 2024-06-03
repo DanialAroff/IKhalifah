@@ -25,19 +25,20 @@
             $parentNationality = mysqli_real_escape_string($conn, $_POST['parentNationality']);
             $parentOccupation = mysqli_real_escape_string($conn, $_POST['parentOccupation']);
             $parentPhone = mysqli_real_escape_string($conn, $_POST['parentPhone']);
+            $userId = mysqli_real_escape_string($conn, $_SESSION['userId']);
 
             $sql_student = "INSERT INTO students (fullname, birthdate, age, gender, birthcertno, nationality, address1, address2, postcode, city, is_approved) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, 'pending')";
-            $sql_parent = "INSERT INTO parents (fullname, ic_no, age, relationship, nationality, occupation, phone_number) VALUES (?, ?, ?, ?, ?, ?, ?)";
+            $sql_parent = "INSERT INTO parents (fullname, ic_no, age, relationship, nationality, occupation, phone_number, user_id) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
 
             $stmt_student = mysqli_prepare($conn, $sql_student);
             $stmt_parent = mysqli_prepare($conn, $sql_parent);
 
-            mysqli_stmt_bind_param($stmt_student, "ssssssssssss", $fullname, $birthdate, $age, $gender, $birthcertno, $nationality, $address1, $address2, $postcode, $city);
-            mysqli_stmt_bind_param($stmt_parent, "sssssss", $parentFullname, $parentIc, $parentAge, $relationship, $parentNationality, $parentOccupation, $parentPhone);
+            mysqli_stmt_bind_param($stmt_student, "ssssssssss", $fullname, $birthdate, $age, $gender, $birthcertno, $nationality, $address1, $address2, $postcode, $city);
+            mysqli_stmt_bind_param($stmt_parent, "ssssssss", $parentFullname, $parentIc, $parentAge, $relationship, $parentNationality, $parentOccupation, $parentPhone, $userId);
 
             if (mysqli_stmt_execute($stmt_student) && mysqli_stmt_execute($stmt_parent)) {
                 echo "Student and parent information saved successfully!";
-                header(base_url . '/registerstudent.php?=applied');
+                header('location:' . base_url . '/registerstudent.php?=applied');
             } else {
                 echo "Error: " . mysqli_error($conn);
             }
@@ -53,6 +54,6 @@
     } else {
         echo "Submission failed";
         sleep(3);
-        header(base_url . '/registerstudent.php?=failed');
+        header('location: ' . base_url . '/registerstudent.php?=failed');
     }
 ?>

@@ -24,12 +24,19 @@
     <div class="main-container">
         <?php include('header.php'); ?>
         <main>
+            <?php 
+                if ((isset($_SESSION['userType']) && $_SESSION['userType'] == 'parent') 
+                || !isset($_SESSION['userType'])) {
+            ?>
             <section class="banner">
                 <div class="cto-1">
                     <p>Lighten up the kids future with 'Iman</p>
-                    <button class="btn-inquire">Inquire Now</button>
+                    <button class="btn-inquire" onclick="window.location.href='registerstudent.php';">Register Now</button>
                 </div>
             </section>
+            <?php
+                }
+            ?>
         </main>
         <!-- <section class="section-2">
             Section 2

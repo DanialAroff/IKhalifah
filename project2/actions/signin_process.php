@@ -23,7 +23,7 @@
                     $_SESSION['userId'] = $user['user_id'];
                     $_SESSION['username'] = $user['username'];
                     $_SESSION['email'] = $user['email'];
-                    $_SESSION['user_type'] = $user['user_type'];
+                    $_SESSION['userType'] = $user['user_type'];
                     $_SESSION['signedin_ikhalifah'] = 1;
 
                     $user_id = $user['user_id'];
@@ -61,7 +61,7 @@
                 } else {
                     $_SESSION['failed_signin_msg'] = $errMsg1;
                     header('Content-Type: application/json');
-                    echo json_encode(array("success" => false));
+                    echo json_encode(array("success" => false, "error" => $errMsg1));
                     exit();
                 }
             } else {
