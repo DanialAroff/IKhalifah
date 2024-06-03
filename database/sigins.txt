@@ -1,0 +1,11 @@
+User
+danial@gmail.com
+danial123
+
+Teacher
+adibah@gmail.com
+pass123
+
+Admin
+admin1@gmail.com
+admin123
